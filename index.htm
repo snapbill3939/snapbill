@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SnapBill — Instant Quotes for Tradies</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Source Sans 3',sans-serif;color:#2C2C2C;overflow-x:hidden}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,0.95);backdrop-filter:blur(10px);padding:16px 40px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo svg{display:block}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{font-family:'Oswald',sans-serif;font-size:14px;color:#BBBBBB;text-decoration:none;letter-spacing:2px;transition:color 0.3s}
+.nav-links a:hover{color:#FFFFFF}
+.nav-links .nav-cta{background:#FF6B1A;color:#FFFFFF;padding:10px 24px;border-radius:50px;font-size:13px;letter-spacing:2px}
+.nav-links .nav-cta:hover{background:#00C853;color:#FFFFFF}
+@media(max-width:768px){.nav{padding:12px 20px}.nav-links{gap:15px}.nav-links a{font-size:12px}.nav-links .nav-cta{padding:8px 16px;font-size:11px}}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:70px;background:#0D0D0D;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 40%,rgba(255,107,26,0.15) 0%,transparent 50%),radial-gradient(circle at 70% 60%,rgba(0,200,83,0.1) 0%,transparent 50%);animation:pulse 8s ease-in-out infinite alternate}
+@keyframes pulse{0%{transform:scale(1) rotate(0deg)}100%{transform:scale(1.1) rotate(3deg)}}
+.hero-content{position:relative;z-index:2;padding:40px 20px}
+.hero-logo{margin-bottom:30px}
+.hero h1{font-family:'Oswald',sans-serif;font-size:clamp(36px,8vw,72px);font-weight:700;color:#FFFFFF;letter-spacing:2px;margin-bottom:20px;line-height:1.1}
+.hero h1 .orange{color:#FF6B1A}
+.hero h1 .green{color:#00C853}
+.hero .subtitle{font-size:clamp(18px,3vw,26px);color:#BBBBBB;margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.5}
+.hero .cta-btn{display:inline-block;padding:18px 50px;background:#FF6B1A;color:#FFFFFF;font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;letter-spacing:2px;text-decoration:none;border-radius:50px;transition:all 0.3s ease;cursor:pointer;border:none}
+.hero .cta-btn:hover{background:#00C853;transform:translateY(-3px);box-shadow:0 10px 40px rgba(0,200,83,0.3)}
+.scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:#555;font-size:14px;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+
+/* HOW IT WORKS */
+.how{padding:100px 20px;background:#F7F4EF;text-align:center}
+.how h2{font-family:'Oswald',sans-serif;font-size:clamp(28px,5vw,42px);font-weight:700;margin-bottom:15px;color:#2C2C2C}
+.how .section-sub{font-size:18px;color:#777;margin-bottom:60px}
+.steps{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;max-width:1000px;margin:0 auto}
+.step{flex:1;min-width:250px;max-width:300px;padding:40px 30px;background:#FFFFFF;border-radius:16px;position:relative;transition:transform 0.3s ease}
+.step:hover{transform:translateY(-8px)}
+.step-num{position:absolute;top:-20px;left:50%;transform:translateX(-50%);width:44px;height:44px;background:#FF6B1A;color:#FFF;font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.step h3{font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;margin:20px 0 12px;color:#2C2C2C}
+.step p{font-size:15px;color:#666;line-height:1.6}
+.step-icon{font-size:36px;margin-bottom:5px}
+
+/* FEATURES */
+.features{padding:100px 20px;background:#0D0D0D;text-align:center}
+.features h2{font-family:'Oswald',sans-serif;font-size:clamp(28px,5vw,42px);font-weight:700;color:#FFFFFF;margin-bottom:60px}
+.features-grid{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;max-width:1000px;margin:0 auto}
+.feature{flex:1;min-width:200px;max-width:220px;padding:30px 20px;border:1px solid #333;border-radius:12px;transition:all 0.3s ease}
+.feature:hover{border-color:#FF6B1A;background:rgba(255,107,26,0.05)}
+.feature-icon{width:50px;height:50px;margin:0 auto 15px;background:rgba(255,107,26,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px}
+.feature h4{font-family:'Oswald',sans-serif;font-size:16px;font-weight:600;color:#FFFFFF;margin-bottom:8px}
+.feature p{font-size:13px;color:#999;line-height:1.5}
+
+/* PRICING */
+.pricing{padding:100px 20px;background:#F7F4EF;text-align:center}
+.pricing h2{font-family:'Oswald',sans-serif;font-size:clamp(28px,5vw,42px);font-weight:700;margin-bottom:15px}
+.pricing .section-sub{font-size:18px;color:#777;margin-bottom:60px}
+.price-card{max-width:400px;margin:0 auto;background:#FFFFFF;border-radius:20px;padding:50px 40px;position:relative;overflow:hidden}
+.price-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#FF6B1A,#00C853)}
+.price-amount{font-family:'Oswald',sans-serif;font-size:60px;font-weight:700;color:#2C2C2C}
+.price-amount span{font-size:20px;color:#999;font-weight:400}
+.price-period{font-size:16px;color:#999;margin-bottom:30px}
+.price-features{list-style:none;text-align:left;margin-bottom:35px}
+.price-features li{padding:10px 0;border-bottom:1px solid #F0EDE8;font-size:15px;color:#555;padding-left:28px;position:relative}
+.price-features li::before{content:'';position:absolute;left:0;top:14px;width:16px;height:16px;background:#00C853;border-radius:50%;opacity:0.8}
+.price-cta{display:inline-block;padding:16px 45px;background:#00C853;color:#FFF;font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;letter-spacing:2px;text-decoration:none;border-radius:50px;transition:all 0.3s ease;border:none;cursor:pointer;width:100%}
+.price-cta:hover{background:#FF6B1A;transform:translateY(-2px)}
+
+/* TRADIE QUOTE */
+.social-proof{padding:80px 20px;background:#0D0D0D;text-align:center}
+.social-proof h2{font-family:'Oswald',sans-serif;font-size:clamp(24px,4vw,36px);color:#FFFFFF;margin-bottom:10px}
+.social-proof p{font-size:18px;color:#00C853;font-weight:600}
+
+/* CTA BANNER */
+.cta-banner{padding:100px 20px;background:linear-gradient(135deg,#FF6B1A 0%,#FF8C42 100%);text-align:center}
+.cta-banner h2{font-family:'Oswald',sans-serif;font-size:clamp(28px,5vw,42px);font-weight:700;color:#FFFFFF;margin-bottom:20px}
+.cta-banner p{font-size:18px;color:rgba(255,255,255,0.85);margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-banner .cta-btn{background:#FFFFFF;color:#FF6B1A;padding:18px 50px;font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;letter-spacing:2px;border-radius:50px;text-decoration:none;display:inline-block;transition:all 0.3s ease;border:none;cursor:pointer}
+.cta-banner .cta-btn:hover{transform:translateY(-3px);box-shadow:0 10px 40px rgba(0,0,0,0.2)}
+
+/* FOOTER */
+.footer{padding:40px 20px;background:#0D0D0D;text-align:center;border-top:1px solid #222}
+.footer p{font-size:13px;color:#666}
+.footer a{color:#FF6B1A;text-decoration:none}
+
+@media(max-width:768px){
+.steps{flex-direction:column;align-items:center}
+.features-grid{flex-direction:column;align-items:center}
+.feature{max-width:300px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+<div class="nav-logo">
+<svg width="200" height="60" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+<rect x="4" y="12" width="32" height="25" rx="4" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+<circle cx="20" cy="10" r="3" fill="#FF6B1A"/>
+<circle cx="20" cy="24" r="7" fill="none" stroke="#FF6B1A" stroke-width="1.2"/>
+<circle cx="20" cy="24" r="2.5" fill="#FF6B1A"/>
+<line x1="36" y1="24" x2="44" y2="24" stroke="#FF6B1A" stroke-width="1.2" stroke-linecap="round"/>
+<rect x="46" y="14" width="18" height="14" rx="2" fill="#FF6B1A"/>
+<line x1="50" y1="20" x2="60" y2="20" stroke="white" stroke-width="0.7" stroke-linecap="round"/>
+<line x1="50" y1="23" x2="58" y2="23" stroke="white" stroke-width="0.7" stroke-linecap="round"/>
+<text x="0" y="58" font-family="'Oswald',sans-serif" font-size="44" font-weight="700" letter-spacing="1.5"><tspan fill="#FF6B1A">Snap</tspan><tspan fill="#00C853">Bill</tspan></text>
+<text x="95" y="74" text-anchor="middle" font-family="'Oswald',sans-serif" font-size="12" fill="#FFFFFF" letter-spacing="3">INSTANT QUOTES</text>
+</svg>
+</div>
+<div class="nav-links">
+<a href="#how">HOW IT WORKS</a>
+<a href="#pricing">PRICING</a>
+<a href="https://wa.me/61403441104?text=Hey%2C%20I%20want%20to%20try%20SnapBill!" target="_blank" class="nav-cta">JOIN NOW</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<h1>Send professional quotes<br>from <span class="orange">WhatsApp</span><br>in <span class="green">30 seconds</span></h1>
+<p class="subtitle">No app to download. No software to learn. Just message your job details and get a branded PDF quote sent to your client instantly.</p>
+<a href="https://wa.me/61403441104?text=Hey%2C%20I%20want%20to%20try%20SnapBill!" class="cta-btn" target="_blank">START FREE TRIAL</a>
+</div>
+<div class="scroll-hint">scroll down</div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+<h2>How it works</h2>
+<p class="section-sub">Three steps. That's it.</p>
+<div class="steps">
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-icon"></div>
+<h3>Message the job</h3>
+<p>WhatsApp your client's details, job description, and pricing to your SnapBill number. Text or voice note.</p>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-icon"></div>
+<h3>We build the quote</h3>
+<p>AI instantly turns your message into a professional branded PDF quote with your logo, ABN, and licence number.</p>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-icon"></div>
+<h3>Client gets it</h3>
+<p>Your client receives the quote in their email within seconds. You get a WhatsApp confirmation it was delivered.</p>
+</div>
+</div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+<h2>Built for <span style="color:#FF6B1A">BUSY PROFESSIONALS</span></h2>
+<div class="features-grid">
+<div class="feature">
+<div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M5 12l5 5L19 7" fill="none" stroke="#00C853" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<h4>GST included</h4>
+<p>All quotes automatically calculate GST and display totals correctly for Australian tax compliance.</p>
+</div>
+<div class="feature">
+<div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M5 12l5 5L19 7" fill="none" stroke="#00C853" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<h4>Your branding</h4>
+<p>Your logo, business name, ABN, and licence on every quote. Looks like you paid thousands for it.</p>
+</div>
+<div class="feature">
+<div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M5 12l5 5L19 7" fill="none" stroke="#00C853" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<h4>Error handling</h4>
+<p>Forgot the price? Missing client details? SnapBill tells you exactly what's needed — no broken quotes.</p>
+</div>
+</div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="social-proof">
+<h2>"I quoted a $3,600 hot water install from the back of my ute in 30 seconds."</h2>
+<p>— Jake, Plumber, Western Sydney</p>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+<h2>Simple pricing</h2>
+<p class="section-sub">No lock-in contracts. Cancel anytime.</p>
+<div class="price-card">
+<div class="price-amount">$39<span>/mo</span></div>
+<div class="price-period">Unlimited quotes</div>
+<ul class="price-features">
+<li>Unlimited quotes via WhatsApp</li>
+<li>Branded PDF with your logo</li>
+<li>Auto GST calculation</li>
+<li>Email delivery to clients</li>
+<li>WhatsApp delivery confirmation</li>
+<li>Quote tracking dashboard</li>
+<li>Dedicated AU phone number</li>
+</ul>
+<button class="price-cta" onclick="window.open('https://wa.me/61403441104?text=Hey%2C%20I%20want%20to%20try%20SnapBill!','_blank')">GET STARTED</button>
+</div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+<h2>Stop losing jobs to slow quotes</h2>
+<p>Your competitor just quoted in 30 seconds from his van. Can you?</p>
+<a href="https://wa.me/61403441104?text=Hey%2C%20I%20want%20to%20try%20SnapBill!" class="cta-btn" target="_blank">TRY SNAPBILL FREE</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<p>&copy; 2026 SnapBill Pty Ltd &middot; ABN pending &middot; Sydney, Australia &middot; <a href="mailto:hello@snapbill.com.au">hello@snapbill.com.au</a></p>
+</footer>
+
+</body>
+</html>
