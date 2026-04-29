@@ -184,7 +184,6 @@ body{font-family:'Source Sans 3',sans-serif;color:#2C2C2C;overflow-x:hidden}
 <p>— Jake, Plumber, Western Sydney</p>
 </section>
 
-<!-- PRICING -->
 <!-- Replace EVERYTHING between "<!-- PRICING -->" and "<!-- CTA BANNER -->" with this -->
 
 <!-- PRICING -->
@@ -230,11 +229,11 @@ body{font-family:'Source Sans 3',sans-serif;color:#2C2C2C;overflow-x:hidden}
 <!-- Add this CSS inside your existing <style> block or just before </head> -->
 <style>
 .pricing-cards{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;max-width:750px;margin:0 auto}
-.price-card{flex:1;min-width:280px;max-width:340px;background:#FFFFFF;border-radius:20px;padding:50px 40px;position:relative;overflow:hidden;text-align:center}
+.price-card{flex:1;min-width:280px;max-width:340px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:20px;padding:50px 40px;position:relative;overflow:hidden;text-align:center}
 .price-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:#FF6B1A}
 .price-card-featured{border:2px solid #FF6B1A;transform:scale(1.03)}
 .price-card-featured::before{background:linear-gradient(90deg,#FF6B1A,#00C853)}
-.price-badge{position:absolute;top:12px;right:-32px;background:#FF6B1A;color:#FFF;font-family:'Oswald',sans-serif;font-size:11px;font-weight:600;padding:5px 40px;letter-spacing:2px;transform:rotate(45deg)}
+.price-badge{position:absolute;top:0;left:50%;transform:translateX(-50%);background:#FF6B1A;color:#FFF;font-family:'Oswald',sans-serif;font-size:11px;font-weight:600;padding:6px 20px;letter-spacing:2px;border-radius:0 0 8px 8px}
 .plan-label{font-family:'Oswald',sans-serif;font-size:16px;color:#999;letter-spacing:3px;margin-bottom:10px}
 .price-cta-outline{background:transparent!important;color:#FF6B1A!important;border:2px solid #FF6B1A}
 .price-cta-outline:hover{background:#FF6B1A!important;color:#FFF!important}
