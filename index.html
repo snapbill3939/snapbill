@@ -186,57 +186,199 @@ body{font-family:'Source Sans 3',sans-serif;color:#2C2C2C;overflow-x:hidden}
 
 
 <!-- PRICING -->
-<section class="pricing" id="pricing">
-<h2>Simple pricing</h2>
-<p class="section-sub">No lock-in contracts. Cancel anytime.</p>
-<div class="pricing-cards">
+<!-- Replace your existing pricing section with this -->
+<section id="pricing">
+  <h2>Simple pricing</h2>
+  <p class="pricing-subtitle">No lock-in contracts. Cancel anytime.</p>
 
-<div class="price-card">
-<div class="plan-label">FREE</div>
-<div class="price-amount">$0<span>/mo</span></div>
-<p class="price-period">Try it — no card needed</p>
-<ul class="price-features">
-<li>5 quotes per month</li>
-<li>Branded PDF with your logo</li>
-<li>Auto GST calculation</li>
-<li>Email delivery to clients</li>
-<li>WhatsApp delivery confirmation</li>
-</ul>
-<a href="https://wa.me/61403441104?text=Hey%2C%20I%20want%20to%20try%20SnapBill%20Free!" class="price-cta price-cta-outline" target="_blank">START FREE</a>
-</div>
+  <div class="pricing-grid">
+    <!-- Free Trial -->
+    <div class="pricing-card">
+      <div class="plan-name">Free Trial</div>
+      <div class="plan-price">$0<span>/7 days</span></div>
+      <div class="plan-tagline">Try SnapBill risk-free</div>
+      <ul>
+        <li>7 days unlimited quotes</li>
+        <li>Branded PDF with your logo</li>
+        <li>Auto GST calculation</li>
+        <li>Email delivery to clients</li>
+        <li>WhatsApp delivery confirmation</li>
+        <li>No credit card required</li>
+      </ul>
+      <p class="cta-note">No app. No account. No card. Just WhatsApp.</p>
+      <a href="https://wa.me/61403441104?text=Hey%2C%20I%20want%20to%20try%20SnapBill%20free%20for%207%20days!" class="cta-button cta-outline">Start Free Trial</a>
+    </div>
 
-<div class="price-card price-card-featured">
-<div class="price-badge">MOST POPULAR</div>
-<div class="plan-label">PRO</div>
-<div class="price-amount">$39<span>/mo</span></div>
-<p class="price-period">Unlimited quotes</p>
-<ul class="price-features">
-<li>Unlimited quotes via WhatsApp</li>
-<li>Branded PDF with your logo</li>
-<li>Auto GST calculation</li>
-<li>Email delivery to clients</li>
-<li>WhatsApp delivery confirmation</li>
-<li>Dedicated AU phone number</li>
-<li>Priority support</li>
-</ul>
-<a href="https://wa.me/61403441104?text=Hey%2C%20I%20want%20to%20try%20SnapBill%20Pro!" class="price-cta" target="_blank">GET STARTED</a>
-</div>
-
-</div>
+    <!-- Pro Plan -->
+    <div class="pricing-card pricing-card-featured">
+      <div class="popular-badge">MOST POPULAR</div>
+      <div class="plan-name">Pro</div>
+      <div class="plan-price">$39<span>/mo</span></div>
+      <div class="plan-tagline">Unlimited quotes, all features</div>
+      <ul>
+        <li>Unlimited quotes</li>
+        <li>Branded PDF with your logo</li>
+        <li>Auto GST calculation</li>
+        <li>Email delivery to clients</li>
+        <li>WhatsApp delivery confirmation</li>
+        <li>Priority support</li>
+      </ul>
+      <a href="https://wa.me/61403441104?text=Hey%2C%20I%20want%20to%20sign%20up%20for%20SnapBill%20Pro!" class="cta-button cta-primary">Get Started</a>
+    </div>
+  </div>
 </section>
 
-<!-- Add this CSS inside your existing <style> block or just before </head> -->
 <style>
-.pricing-cards{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;max-width:750px;margin:0 auto}
-.price-card{flex:1;min-width:280px;max-width:340px;background:#FFFFFF;border:1px solid #E0E0E0;border-radius:20px;padding:50px 40px;position:relative;overflow:hidden;text-align:center}
-.price-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:#FF6B1A}
-.price-card-featured{border:2px solid #FF6B1A;transform:scale(1.03)}
-.price-card-featured::before{background:linear-gradient(90deg,#FF6B1A,#00C853)}
-.price-badge{position:absolute;top:0;left:50%;transform:translateX(-50%);background:#FF6B1A;color:#FFF;font-family:'Oswald',sans-serif;font-size:11px;font-weight:600;padding:6px 20px;letter-spacing:2px;border-radius:0 0 8px 8px}
-.plan-label{font-family:'Oswald',sans-serif;font-size:16px;color:#999;letter-spacing:3px;margin-bottom:10px}
-.price-cta-outline{background:transparent!important;color:#FF6B1A!important;border:2px solid #FF6B1A}
-.price-cta-outline:hover{background:#FF6B1A!important;color:#FFF!important}
-@media(max-width:768px){.pricing-cards{flex-direction:column;align-items:center}.price-card-featured{transform:scale(1)}}
+  #pricing {
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  #pricing h2 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+  }
+
+  .pricing-subtitle {
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+  }
+
+  .pricing-grid {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    max-width: 750px;
+    margin: 0 auto;
+  }
+
+  .pricing-card {
+    background: #fff;
+    border: 2px solid #E0E0E0;
+    border-radius: 16px;
+    padding: 36px 28px;
+    width: 320px;
+    text-align: left;
+    position: relative;
+    transition: transform 0.2s;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .pricing-card-featured {
+    border: 2px solid #D4A017;
+    box-shadow: 0 4px 20px rgba(212, 160, 23, 0.15);
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #D4A017;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 16px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .plan-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+  }
+
+  .plan-price {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #111;
+  }
+
+  .plan-price span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #888;
+  }
+
+  .plan-tagline {
+    color: #666;
+    font-size: 0.95rem;
+    margin: 8px 0 20px;
+  }
+
+  .pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px;
+  }
+
+  .pricing-card li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.95rem;
+    color: #444;
+  }
+
+  .pricing-card li::before {
+    content: "✓ ";
+    color: #22c55e;
+    font-weight: 700;
+  }
+
+  .pricing-card li:last-child {
+    border-bottom: none;
+  }
+
+  .cta-button {
+    display: block;
+    text-align: center;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .cta-outline {
+    border: 2px solid #111;
+    color: #111;
+    background: transparent;
+  }
+
+  .cta-outline:hover {
+    background: #111;
+    color: #fff;
+  }
+
+  .cta-primary {
+    background: #D4A017;
+    color: #fff;
+    border: 2px solid #D4A017;
+  }
+
+  .cta-primary:hover {
+    background: #b8891a;
+    border-color: #b8891a;
+  }
+
+  @media (max-width: 700px) {
+    .pricing-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+    .pricing-card {
+      width: 100%;
+      max-width: 360px;
+    }
+  }
 </style>
 
 <!-- CTA BANNER -->
